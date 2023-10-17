@@ -1,11 +1,12 @@
-import { FC, PropsWithChildren } from "react";
+import { FC } from "react";
+import SignIn from "../sign-in/SignIn";
 
 
-const SignInPage: FC<PropsWithChildren<{}>> = ({ children }) => {
+const SignInPage: FC = () => {
   return (
     <article>
       <h2>Sign in page</h2>
-      {children}
+      <SignIn />
     </article>
   );
 }

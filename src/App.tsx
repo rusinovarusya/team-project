@@ -4,6 +4,8 @@ import Header from './components/header/Header';
 import HomePage from './components/home-page/HomePage';
 import SignInPage from './components/signin-page/SignInPage';
 import SignUpPage from './components/signup-page/SignUpPage';
+import "./firebase";
+
 
 function App() {
   return (
