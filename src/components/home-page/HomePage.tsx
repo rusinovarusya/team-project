@@ -1,13 +1,13 @@
 import { FC, PropsWithChildren } from "react";
 import { useAuth } from "../../hooks/use-auth";
 import { Navigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { removeUser } from "../../store/slices/userSlice";
+import { useAppDispatch } from "../../hooks/redux-hooks";
 
 
 const HomePage: FC<PropsWithChildren<{}>> = ({ children }) => {
   const { isAuth, email } =  useAuth();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (isAuth ?
     <article>
