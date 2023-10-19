@@ -10,7 +10,7 @@ import "./firebase";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/team-project">
         <Header>
           <Routes>
             <Route path="/" element={<HomePage />} />
