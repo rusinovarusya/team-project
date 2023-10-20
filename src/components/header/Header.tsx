@@ -6,14 +6,16 @@ const Header: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <header>
       <h2>Header</h2>
+      <Link to="/">Logo</Link>
       <nav>
-        <ul>
+        {children}
+        {/* <ul>
           <li><Link to="/">Logo</Link></li>
           <li><Link to="/signin">Sign in</Link></li>
           <li><Link to="/signup">Sign up</Link></li>
-        </ul>
+          {children}
+        </ul> */}
       </nav>
-      {children}
     </header>
   );
 }
