@@ -1,9 +1,10 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Form from "../form/Form";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import { setUser } from "../../store/slices/userSlice";
+import ModalContainer from "../modal-container/ModalContainer";
 
 
 const SignUp: FC = () => {
@@ -26,8 +27,15 @@ const SignUp: FC = () => {
       .catch(console.error)
   }
 
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
   return (
-    <Form title="Sign up" handleClick={handleSignUp} />
+    <>
+      {isModalOpen &&
+      <ModalContainer onClick={() => setIsModalOpen(false)}>
+        <Form title="Sign up" handleClick={handleSignUp} />
+      </ModalContainer>}
+    </>
   );
 }
 
