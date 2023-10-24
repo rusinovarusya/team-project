@@ -1,0 +1,11 @@
+.user-menu {
+    display: flex;
+    list-style: none;
+    width: auto;
+    justify-content: space-around;
+}
+
+.user-menu__item {
+    display: inline-flex;
+    padding: 10px 20px;
+}
