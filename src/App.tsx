@@ -9,6 +9,8 @@ import FavoritesPage from './components/favorites-page/FavoritesPage';
 import HistoryPage from './components/history-page/HistoryPage';
 import SearchPage from './components/search-page/SearchPage';
 import HeaderContent from './components/header-content/HeaderContent';
+import Footer from './components/footer/Footer';
+import Content from './components/content/Content';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
             <Route path="/search" element={<SearchPage />} />
           </Routes>
         </Header>
+        <Content></Content>
+        <Footer></Footer>
         </BrowserRouter>
     </div>
   );

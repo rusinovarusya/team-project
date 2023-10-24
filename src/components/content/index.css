@@ -1,0 +1,15 @@
+.content-items {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 50px;
+}
+
+.content-item {
+    border: 1px solid #999;
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -3,6 +3,7 @@ import { useAuth } from "../../hooks/use-auth";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import { removeUser } from "../../store/slices/userSlice";
+import './index.css'
 
 
 const HeaderContent: FC = () => {
@@ -10,17 +11,17 @@ const HeaderContent: FC = () => {
   const dispatch = useAppDispatch();
 
   return (isAuth ? (
-    <ul>
-      <li>{email}</li>
-      <li><Link to="/favorites">Избранное</Link></li>
-      <li><Link to="/history">История</Link></li>
-      <li><Link to="/search">Поиск</Link></li>
-      <li><button onClick={() => dispatch(removeUser())}>Выход</button></li>
+    <ul className="user-menu">
+      <li className="user-menu__item">{email}</li>
+      <li className="user-menu__item"><Link to="/favorites">Избранное</Link></li>
+      <li className="user-menu__item"><Link to="/history">История</Link></li>
+      <li className="user-menu__item"><Link to="/search">Поиск</Link></li>
+      <li className="user-menu__item"><button onClick={() => dispatch(removeUser())}>Выход</button></li>
     </ul>
   ) : (
-    <ul>
-      <li><Link to="/signin">Вход</Link></li>
-      <li><Link to="/signup">Регистрация</Link></li>
+    <ul className="user-menu">
+      <li className="user-menu__item"><Link to="/signin">Вход</Link></li>
+      <li className="user-menu__item"><Link to="/signup">Регистрация</Link></li>
     </ul>
   ));
 }
