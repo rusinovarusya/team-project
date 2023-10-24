@@ -4,7 +4,7 @@
 
 - [Русинова Ирина](https://github.com/rusinovarusya)
 - [Усин Александр](https://github.com/LxCtchr)
-- [Николаев Павел](https://github.com/LxCtchr)
+- [Николаев Павел](https://github.com/vspaker)
 
 ## Описание проекта
 
