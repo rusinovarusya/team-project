@@ -8,7 +8,6 @@ const HomePage: FC<PropsWithChildren<{}>> = ({ children }) => {
 
   return (isAuth ?
     <article>
-      <h2>Home page</h2>
       There is a description...
       {children}
     </article> : (
