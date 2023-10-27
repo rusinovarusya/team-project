@@ -4,9 +4,9 @@ import searchFilmInstance from "../../API/axios";
 
 import { TMovie } from "../../redux/movie/type";
 
-import './index.css'
+import { FILM_IDS } from "../../config/globals";
 
-const FILM_IDS : string[] = ['tt0111161', 'tt0068646', 'tt0468569', 'tt0071562', 'tt0108052', 'tt0167260', 'tt0110912', 'tt0050083']
+import './index.css'
 
 const Content: FC = () => {
   const [ids, setIds] = useState<string[]>(FILM_IDS);
@@ -36,7 +36,7 @@ const Content: FC = () => {
         {movies ? movies.map((movie) => (
           <li className="content-item">
             <h3 className="item-heading">{movie.name}</h3>
-            <img className="item-poster" src={movie.image} alt="movie poster" width="300px" />
+            <img className="item-poster" src={movie.image} alt="movie poster" width="400px" />
             <p className="item-summary">{movie.description}</p>
           </li>
         )) : "Не загрузилось"}
