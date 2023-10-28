@@ -1,51 +1,45 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
+
+import searchFilmInstance from "../../API/axios";
+
+import { TMovie } from "../../redux/movie/type";
+
+import { FILM_IDS } from "../../config/globals";
+
 import './index.css'
 
 const Content: FC = () => {
-    
-    return (
-        <article className="content">
-            <ul className="content-items">
-                <li className="content-item">
-                    <h3 className="item-heading">Название фильма</h3>
-                    <img className="item-poster" src="https://imgholder.ru/200x300/8493a8/adb9ca.jpg&text=FILM+POSTER&font=kelson" width="200" height="300"></img>
-                    <p className="item-summary">Краткое описание фильма</p>
-                </li>
-                <li className="content-item">
-                    <h3 className="item-heading">Название фильма</h3>
-                    <img className="item-poster" src="https://imgholder.ru/200x300/8493a8/adb9ca.jpg&text=FILM+POSTER&font=kelson" width="200" height="300"></img>
-                    <p className="item-summary">Краткое описание фильма</p>
-                </li>
-                <li className="content-item">
-                    <h3 className="item-heading">Название фильма</h3>
-                    <img className="item-poster" src="https://imgholder.ru/200x300/8493a8/adb9ca.jpg&text=FILM+POSTER&font=kelson" width="200" height="300"></img>
-                    <p className="item-summary">Краткое описание фильма</p>
-                </li>
-                <li className="content-item">
-                    <h3 className="item-heading">Название фильма</h3>
-                    <img className="item-poster" src="https://imgholder.ru/200x300/8493a8/adb9ca.jpg&text=FILM+POSTER&font=kelson" width="200" height="300"></img>
-                    <p className="item-summary">Краткое описание фильма</p>
-                </li>
-                <li className="content-item">
-                    <h3 className="item-heading">Название фильма</h3>
-                    <img className="item-poster" src="https://imgholder.ru/200x300/8493a8/adb9ca.jpg&text=FILM+POSTER&font=kelson" width="200" height="300"></img>
-                    <p className="item-summary">Краткое описание фильма</p>
-                </li>
-                <li className="content-item">
-                    <h3 className="item-heading">Название фильма</h3>
-                    <img className="item-poster" src="https://imgholder.ru/200x300/8493a8/adb9ca.jpg&text=FILM+POSTER&font=kelson" width="200" height="300"></img>
-                    <p className="item-summary">Краткое описание фильма</p>
-                </li>
-                <li className="content-item">
-                    <h3 className="item-heading">Название фильма</h3>
-                    <img className="item-poster" src="https://imgholder.ru/200x300/8493a8/adb9ca.jpg&text=FILM+POSTER&font=kelson" width="200" height="300"></img>
-                    <p className="item-summary">Краткое описание фильма</p>
-                </li>
-                <li className="content-item">
-                    <h3 className="item-heading">Название фильма</h3>
-                    <img className="item-poster" src="https://imgholder.ru/200x300/8493a8/adb9ca.jpg&text=FILM+POSTER&font=kelson" width="200" height="300"></img>
-                    <p className="item-summary">Краткое описание фильма</p>
-                </li>
+  const [ids, setIds] = useState<string[]>(FILM_IDS);
+  const [movies, setMovies] = useState<TMovie[]>([]);
+  
+  useEffect(() => {
+    async function fetchMovie(id: string) {
+      await searchFilmInstance
+        .get(`?tt=${id}`)
+        .then((res) => {
+          setMovies((prevState) => [...prevState, {
+            name: res.data.short.name,
+            image: res.data.short.image,
+            description: res.data.short.description
+          }])
+        })
+    }
+
+    for (let i = 0; i < ids.length; i++) {
+      fetchMovie(ids[i]);
+    }
+  }, [ids])
+
+  return (
+    <article className="content">
+      <ul className="content-items">
+        {movies ? movies.map((movie) => (
+          <li className="content-item">
+            <h3 className="item-heading">{movie.name}</h3>
+            <img className="item-poster" src={movie.image} alt="movie poster" width="400px" />
+            <p className="item-summary">{movie.description}</p>
+          </li>
+        )) : "Не загрузилось"}
             </ul>
         </article>
     );
