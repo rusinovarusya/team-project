@@ -11,7 +11,7 @@ const SearchPage: FC<PropsWithChildren<{}>> = ({ children }) => {
       {children}
     </article>
   ) : (
-    <Navigate to="/signin" />
+    <Navigate to="/" />
   ));
 }
 
