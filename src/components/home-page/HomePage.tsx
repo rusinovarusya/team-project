@@ -1,19 +1,17 @@
 import { FC, PropsWithChildren } from "react";
-import { useAuth } from "../../hooks/use-auth";
-import { Navigate } from "react-router-dom";
+import "./index.css";
+import Search from "../search/Search";
 
 
 const HomePage: FC<PropsWithChildren<{}>> = ({ children }) => {
-  const { isAuth } =  useAuth();
-
-  return (isAuth ?
-    <article>
-      <h2>Home page</h2>
-      There is a description...
+  return (
+    <article className="home-page-container">
+      <Search />
+      <p className="description">
+        There is a description...
+      </p>
       {children}
-    </article> : (
-    <Navigate to="/signin" />
-    )
+    </article>
   );
 }
 

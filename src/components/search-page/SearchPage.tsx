@@ -8,11 +8,10 @@ const SearchPage: FC<PropsWithChildren<{}>> = ({ children }) => {
 
   return (isAuth ? (
     <article>
-      <h2>Search page</h2>
       {children}
     </article>
   ) : (
-    <Navigate to="/signin" />
+    <Navigate to="/" />
   ));
 }
 
