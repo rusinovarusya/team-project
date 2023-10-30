@@ -1,17 +1,14 @@
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './components/header/Header';
-import HomePage from './components/home-page/HomePage';
-import SignInPage from './components/signin-page/SignInPage';
-import SignUpPage from './components/signup-page/SignUpPage';
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./components/header/Header";
+import HomePage from "./components/home-page/HomePage";
+import SignInPage from "./components/signin-page/SignInPage";
+import SignUpPage from "./components/signup-page/SignUpPage";
 import "./firebase";
-import FavoritesPage from './components/favorites-page/FavoritesPage';
-import HistoryPage from './components/history-page/HistoryPage';
-import SearchPage from './components/search-page/SearchPage';
-import HeaderContent from './components/header-content/HeaderContent';
-import Footer from './components/footer/Footer';
-import Content from './components/content/Content';
-
+import FavoritesPage from "./components/favorites-page/FavoritesPage";
+import HistoryPage from "./components/history-page/HistoryPage";
+import SearchPage from "./components/search-page/SearchPage";
+import HeaderContent from "./components/header-content/HeaderContent";
 
 function App() {
   return (
@@ -28,8 +25,6 @@ function App() {
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/search" element={<SearchPage />} />
         </Routes>
-        <Content></Content>
-        <Footer></Footer>
       </BrowserRouter>
     </div>
   );
