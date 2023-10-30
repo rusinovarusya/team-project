@@ -1,18 +1,20 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, useState } from "react";
+import Content from "../content/Content";
+import Footer from "../footer/Footer";
 import "./index.css";
 import Search from "../search/Search";
 
+const HomePage: FC = () => {
+  const [query, setQuery] = useState<string>("");
 
-const HomePage: FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <article className="home-page-container">
-      <Search />
-      <p className="description">
-        There is a description...
-      </p>
-      {children}
+      <Search setQuery={setQuery} />
+      <p className="description">There is a description...</p>
+      <Content query={query} />
+      <Footer />
     </article>
   );
-}
+};
 
 export default HomePage;
