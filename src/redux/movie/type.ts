@@ -3,10 +3,10 @@ export type TMovie = {
   name: string;
   image: string;
   description?: string;
-}
+};
 
 export type TMovieByQuery = {
-  '#TITLE': string;
-  '#IMG_POSTER': string;
-  '#IMDB_ID': string;
-}
+  "#TITLE": string;
+  "#IMG_POSTER": string;
+  "#IMDB_ID": string;
+};

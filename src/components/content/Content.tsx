@@ -51,13 +51,13 @@ const Content: FC<Props> = ({ query }) => {
       <ul className="content-items">
         {query.length
           ? moviesByQuery.map((movie) => (
-              <li className="content-item" key={movie['#IMDB_ID']}>
-                <h3 className="item-heading">{movie['#TITLE']}</h3>
+              <li className="content-item" key={movie["#IMDB_ID"]}>
+                <h3 className="item-heading">{movie["#TITLE"]}</h3>
                 <img
                   className="item-poster"
-                  src={movie['#IMG_POSTER']}
+                  src={movie["#IMG_POSTER"]}
                   alt="movie poster"
-                  width="400px"
+                  height="550px"
                 />
               </li>
             ))
@@ -69,24 +69,11 @@ const Content: FC<Props> = ({ query }) => {
                   className="item-poster"
                   src={movie.image}
                   alt="movie poster"
-                  width="400px"
+                  height="550px"
                 />
               </li>
             ))
           : "123"}
-        {/* {moviesById
-          ? moviesById.map((movie) => (
-              <li className="content-item" key={movie.id}>
-                <h3 className="item-heading">{movie.name}</h3>
-                <img
-                  className="item-poster"
-                  src={movie.image}
-                  alt="movie poster"
-                  width="400px"
-                />
-              </li>
-            ))
-          : "Не загрузилось"} */}
       </ul>
     </article>
   );

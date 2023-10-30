@@ -6,7 +6,6 @@ interface Props {
 }
 
 const Search: FC<Props> = ({ setQuery }) => {
-  //const [value, setValue] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -16,8 +15,7 @@ const Search: FC<Props> = ({ setQuery }) => {
       const value = inputRef.current.value;
       if (value === "") return;
       setQuery(inputRef.current.value);
-      //setValue(inputRef.current.value);
-      inputRef.current.value = ""
+      inputRef.current.value = "";
     }
   };
 
