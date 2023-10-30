@@ -13,11 +13,10 @@ const Content: FC = () => {
   const [movies, setMovies] = useState<TMovie[]>([]);
   
   useEffect(() => {
-    async function fetchMovie(id: string) {
+    async function fetchMovieById(id: string) {
       await searchFilmInstance
         .get(`?tt=${id}`)
         .then((res) => {
-          console.log(res.data)
           setMovies((prevState) => [...prevState, {
             name: res.data.short.name,
             image: res.data.short.image,
@@ -28,7 +27,7 @@ const Content: FC = () => {
     }
 
     for (let i = 0; i < ids.length; i++) {
-      fetchMovie(ids[i]);
+      fetchMovieById(ids[i]);
     }
   }, [ids])
 
