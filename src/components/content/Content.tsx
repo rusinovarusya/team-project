@@ -17,10 +17,12 @@ const Content: FC = () => {
       await searchFilmInstance
         .get(`?tt=${id}`)
         .then((res) => {
+          console.log(res.data)
           setMovies((prevState) => [...prevState, {
             name: res.data.short.name,
             image: res.data.short.image,
-            description: res.data.short.description
+            description: res.data.short.description,
+            id: res.data.imdbId,
           }])
         })
     }
@@ -34,7 +36,7 @@ const Content: FC = () => {
     <article className="content">
       <ul className="content-items">
         {movies ? movies.map((movie) => (
-          <li className="content-item">
+          <li className="content-item" key={movie.id}>
             <h3 className="item-heading">{movie.name}</h3>
             <img className="item-poster" src={movie.image} alt="movie poster" width="400px" />
             <p className="item-summary">{movie.description}</p>

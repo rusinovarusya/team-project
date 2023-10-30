@@ -1,10 +1,14 @@
-import { FC } from "react";
+import { FC, useState, ChangeEvent } from "react";
 import "./index.css";
 
 
 const Search: FC = () => {
+
   return (
-    <input type="text" className="search" placeholder="Find a film..." />
+    <section className="search">
+      <input type="text" className="search__input" placeholder="Find a film..." />
+      <button className="search__button">Search</button>
+    </section>
   );
 }
 
