@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/userSlice";
+import favoriteMoviesListSlice from "./slices/favoriteMoviesListSlice";
 
 
 export const store = configureStore({
   reducer: {
-    user: userReducer
+    user: userReducer,
+    favoriteMoviesList: favoriteMoviesListSlice
   }
 });
 

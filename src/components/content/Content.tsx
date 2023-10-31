@@ -7,6 +7,7 @@ import { TMovie, TMovieByQuery } from "../../redux/movie/type";
 import { FILM_IDS } from "../../config/globals";
 
 import "./index.css";
+import FavoritesButton from "../favorite-button/FavoriteButton";
 
 interface Props {
   query: string;
@@ -64,6 +65,7 @@ const Content: FC<Props> = ({ query }) => {
           : moviesById.length
           ? moviesById.map((movie) => (
               <li className="content-item" key={movie.id}>
+                <FavoritesButton movieId={movie.id} />
                 <h3 className="item-heading">{movie.name}</h3>
                 <img
                   className="item-poster"
